@@ -1,0 +1,274 @@
+html{
+    overflow-x: hidden;
+}
+
+section{
+    min-width: 320px;
+}
+
+body{
+    background-color: #FFF;
+}
+
+
+// header
+
+.header__section{
+    background-image: url(../images/menu_header/background.png);
+    @include backgroundPosition;
+    height: 800px;
+    position: relative;
+    margin-bottom: 33.5px;
+
+}
+
+.header{
+
+    &__wrapper{
+       @include centerPosition;
+        padding: 32px 0px;
+        background-color:$header-nav-background-color;
+        position: relative;
+
+    }
+    &__nav{
+        @include flexRow;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__logo{
+        @include flexRow;
+        margin-left: 16px;
+        &-svg {
+            background-image: url("../images/menu_header/logo.svg");
+            width: 43px;
+            height: 41px;
+            margin-right: 17px;
+          }
+        &:hover &-svg{
+            background-image: url('../images/menu_header/logo-hover.svg');
+          }
+        &:hover &-text{
+            color: $white-color;
+          }
+
+
+    }
+    &__logo-text{
+        margin-top: 14px;
+        color:$purple-color;
+        text-transform: uppercase;
+        @include fontLato-bold;
+        line-height: 16px;
+        font-size: 24px;
+        display:none;
+     }
+
+    &__button{
+       @include button;
+        padding: 11px;
+       font-size: 15px;
+       width: 119px;
+       cursor: pointer;
+
+    }
+    &__text{
+        text-align: center;
+        padding: 0px 10px;
+        margin-top: 50px;
+
+
+    }
+    &__title{
+        @include fontMontserrat-bold;
+        color:$white-color;
+        line-height: 48px;
+        font-size: 48px;
+        margin-bottom: 19px;
+    }
+    &__subtitle{
+        @include fontMontserrat-normal;
+        color: $purple-color;
+        font-size: 18px;
+        line-height: 24px;
+       margin-bottom: 14px;
+
+    }
+    &__content{
+        @include fontMontserrat-normal;
+        color: $content-color;
+       text-transform: uppercase;
+       font-size: 14px;
+        line-height: 14px;
+    }
+    &__download-button{
+        @include button;
+        font-size: 18px;
+        line-height: 20px;
+        width: 290px;
+        padding: 13px 29px;
+        position: absolute;
+        bottom: -22px;
+        left: 50%;
+        margin-left: -145px;
+        cursor: pointer;
+
+    }
+    &__button-text{
+        color:$content-color;
+        text-align: center;
+        @include fontMontserrat-normal;
+        font-size: 14px;
+        line-height: 14px;
+        margin-bottom: 71.5px;
+
+    }
+    &__list{
+    display: none;
+    position: absolute;
+    right: 0;
+    margin-right: 15px;
+    top: 0;
+    margin-top: 105px;
+    width: 292px;
+    }
+    &__menu-link{
+        display: block;
+        padding: 29px 50px 21px 35px;
+        font-size: 26px;
+        line-height: 26px;
+        text-align: start;
+        @include fontMontserrat-normal;
+        color: $white-color;
+        background-color: $header-menu-background-color;
+        border-bottom: 1px solid $header-menu-border-color;
+    }
+    &__list--opened{
+        display: block ;
+    }
+}
+.burger-opened-img{
+    margin-right: 20px;
+    display: none;
+
+}
+
+@media (max-width: 480px){
+    .header{
+        &__menu-link{
+            &:hover{
+                color: $purple-color;
+                padding: 19px 50px 16px 0px;
+                vertical-align: middle;
+             }
+             &:hover::before{
+             content: "";
+             width:8px;
+             height: 45px;
+             display:inline-block;
+             background-color: $purple-color;
+             margin-right: 29px;
+             vertical-align: middle;
+
+              }
+             &:focus{
+                color: $purple-color;
+                vertical-align: middle;
+
+             }
+        }
+    }
+
+}
+@media (min-width: 481px){
+    .burger-button{
+        display: none;
+        }
+    .header{
+        &__wrapper{
+            padding: 32px 0px 18px 0px;
+        }
+        &__subtitle{
+            @include fontLato-normal;
+            font-size: 24px;
+            line-height: 24px;
+            }
+        &__logo-text{
+            display: block;
+        }
+        &__button{
+            margin-right: 10px;
+        }
+        &__list{
+            margin: auto;
+            position: static;
+            @include flexRow;
+            justify-content: space-around;
+
+            width: 481px;
+        }
+        &__menu-link{
+          @include fontMontserrat-bold;
+          font-size: 16px;
+         line-height: 18px;
+         color: $purple-color;
+         padding: 0px;
+         padding-top: 25px;
+
+         background-color: transparent;
+         border-bottom: none;
+         &:hover{
+            color:$white-color;
+        }
+
+        }
+        &__logo-text:hover{
+            color:$white-color;
+    }
+    &__button:hover,
+    &__download-button:hover{
+        color:$purple-color;
+        background-color: $white-color;
+        border: 1px solid $purple-color;
+    }
+    }
+}
+
+@media (min-width: 993px){
+    .header{
+        &__wrapper{
+            background-color: transparent;
+        }
+        &__list{
+            position: absolute;
+            bottom:0;
+            right: 0;
+            margin-top: 42px;
+            margin-right: 193px;
+
+        }
+        &__subtitle{
+        @include fontLato-normal;
+        font-size: 30px;
+        line-height: 30px;
+        }
+        &__menu-link{
+            padding: 0;
+            line-height: 17px;
+            &:hover{
+                color:$white-color;
+            }
+        }
+        &__logo-text:hover{
+                color:$white-color;
+        }
+        &__button:hover,
+        &__download-button:hover{
+            color:$purple-color;
+            background-color: $white-color;
+            border: 1px solid $purple-color;
+
+
+        }
+    }
+}
